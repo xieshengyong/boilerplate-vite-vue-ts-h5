@@ -1,0 +1,37 @@
+{
+  "name": "boilerplate-vite-vue-ts-h5",
+  "private": true,
+  "version": "0.0.1",
+  "description": "基于vite-vue-ts的常规H5模板",
+  "author": "xieshengyong",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xieshengyong/boilerplate-vite-vue-ts-h5"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "postbuild": "npm run movehtml",
+    "movehtml": "move-file dist/ossweb-img/index.html dist/index.html",
+    "sftp": "node sftp.js",
+    "qshell": "qshell user cu td && qshell qupload -c 30 .qshell.json",
+    "ssh": "ssh -D 0.0.0.0:20000 treedom@8.135.58.157 -N"
+  },
+  "dependencies": {
+    "@vitejs/plugin-legacy": "^5.2.0",
+    "move-file-cli": "^3.0.0",
+    "postcss-pxtorem": "^6.0.0",
+    "ssh2-sftp-client": "^9.1.0",
+    "vite-plugin-html": "^3.2.0",
+    "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vue-tsc": "^1.8.22"
+  }
+}
