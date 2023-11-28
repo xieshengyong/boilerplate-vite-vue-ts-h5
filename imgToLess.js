@@ -5,7 +5,7 @@ const fs = require('fs');
 const getImageSize = require('image-size');
 
 const path = require('path');
-function getAllDirs(mypath = './src/img/autoLoad/') {
+function getAllDirs(mypath = './src/assets/') {
     const items = fs.readdirSync(mypath);
 
     let result = '';
@@ -66,7 +66,7 @@ function getAllDirs(mypath = './src/img/autoLoad/') {
 
     return result;
 };
-fs.writeFile(path.join(path.resolve(__dirname), './src/less/imgs.less'), `@img: '../img/';` + getAllDirs(), function (err) {
+fs.writeFile(path.join(path.resolve(__dirname), './src/styles/imgs.less'), `@img: '../assets/';` + getAllDirs(), function (err) {
     if (err) {
         return console.log(err);
     }

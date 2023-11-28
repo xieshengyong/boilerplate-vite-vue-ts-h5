@@ -23,7 +23,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
-          additionalData: '@import "/src/styles/base.less";',
+          additionalData: '@import "/src/styles/common.less";',
         },
       },
       postcss: {

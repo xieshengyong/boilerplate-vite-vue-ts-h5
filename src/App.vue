@@ -15,7 +15,9 @@ console.log(11);
   <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
+<style  lang="less">
+@import url('./styles/base.less');
+@import url('./styles/imgs.less');
 .logo {
   height: 600px;
   padding: 1.5em;
