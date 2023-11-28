@@ -1,7 +1,6 @@
 /// <reference types="vite/client" />
 
-
-declare interface Window  {
+declare interface Window {
   PixiPlugin: any;
   dragonBones: any;
   webkitAudioContext: AudioContext;
