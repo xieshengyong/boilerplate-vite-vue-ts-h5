@@ -1,6 +1,9 @@
 {
     "editor.formatOnSave": true, // 开启保存文件自动格式化代码
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[javascript,typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },

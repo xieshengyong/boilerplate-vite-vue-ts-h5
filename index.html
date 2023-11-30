@@ -1,71 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>boilerplate-vite-vue-ts-h5</title>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="robots" content="all" />
+    <meta name="author" content="Tencent-CP" />
+    <meta name="Copyright" content="Tencent" />
+    <meta name="Keywords" content="boilerplate" />
+    <meta itemprop="description" name="Description" content="boilerplate" />
+    <meta itemprop="name" content="" />
+    <meta itemprop="image" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 页面设计：cp | 页面制作：cp | 创建：2023-11-14 -->
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>boilerplate-vite-vue-ts-h5</title>
-  <meta content="yes" name="apple-mobile-web-app-capable" />
-  <meta name="robots" content="all" />
-  <meta name="author" content="Tencent-CP" />
-  <meta name="Copyright" content="Tencent" />
-  <meta name="Keywords" content="金铲铲,音乐派对邀请函" />
-  <meta id="share-description" itemprop="description" name="Description" content="金铲铲,音乐派对邀请函" />
-  <meta id="share-name" itemprop="name" content="" />
-  <meta id="share-image" itemprop="image" content="" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <!-- 页面设计：cp | 页面制作：cp | 创建：2023-11-14 -->
-</head>
+  <body>
+    <div id="app"></div>
 
-<body>
-  <div id="app"></div>
-
-  <!-- loading小动画 -->
-  <div class="m-icon-loading absf">
-    <div class="inner abcter">
-      <svg class="abcter" version="1.1" id="loader-1" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50">
-        <path fill="#000"
-          d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-          <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25"
-            dur="0.6s" repeatCount="indefinite" />
-        </path>
-      </svg>
+    <!-- loading小动画 -->
+    <div class="m-icon-loading absf">
+      <div class="inner abcter">
+        <svg class="abcter" version="1.1" id="loader-1" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50">
+          <path
+            fill="#000"
+            d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z"
+          >
+            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+          </path>
+        </svg>
+      </div>
     </div>
-  </div>
 
-  <script type="module" src="/src/main.ts"></script>
+    <% if(MODE == 'development' ) { %>
+    <script src="./public/lib/zepto.modules.min.js"></script>
+    <% } else { %>
+    <script src="%BASE_URL%lib/zepto.modules.min.js"></script>
+    <% } %>
 
-  <% if(process.env.NODE_ENV !='development' ) { %>
-    <script src="//ossweb-img.qq.com/images/js/PTT/ping_tcss_tgideas_https_min.js" charset="UTF-8"></script>
-    <script src="https://ossweb-img.qq.com/images/js/TGMobileShare/TGMobileShare.min.js"></script>
+    <script type="module" src="/src/main.ts"></script>
+
+    <% if(MODE == 'production') { %>
+    <script src="//ossweb-img.qq.com/images/js/PTT/ping_tcss_tgideas_https_min.js"></script>
+    <script src="//ossweb-img.qq.com/images/js/TGMobileShare/TGMobileShare.min.js"></script>
     <script>
       //分享参数设置
       var shareParam = {
-        shareTitle: '王者地图站',
-        shareDesc: '王者地图站',
+        shareTitle: "王者地图站",
+        shareDesc: "王者地图站",
         shareImgUrl: `https://game.gtimg.cn/images/mxdm/cp/a20230428wzdtz/share.png`, //分享icon
-        shareLink: '',
-        actName: 'a20230428wzdtz'
+        shareLink: "",
+        actName: "a20230428wzdtz",
       };
       TGMobileShare({
         shareTitle: shareParam.shareTitle, //不设置或设置为空时，页面有title，则调取title
         shareDesc: shareParam.shareDesc, //不设置或设置为空时，页面有Description，则调取Description
         shareImgUrl: shareParam.shareImgUrl, //分享图片尺寸200*200，且填写绝对路径
         shareLink: shareParam.shareLink, //分享链接要跟当前页面同域名(手Q分享有这个要求) ,不设置或设置为空时，默认调取当前URL
-        actName: shareParam.actName //点击流命名，用于统计分享量，专题一般采用目录名称如a20151029demo
+        actName: shareParam.actName, //点击流命名，用于统计分享量，专题一般采用目录名称如a20151029demo
       });
-      var setSite = { //设置网站属性
+      var setSite = {
+        //设置网站属性
         siteType: "a20230428wzdtz", //必填项:"os"代表是官网，如果不是，则填写actName例如a20160701xxx
         pageType: "index", //必填项:本页面的定位；按照页面含义填写例如main||list||detail||download||share||page1||pageN
         pageName: "主页", //必填项:页面中文名
         project: "other", //选填项:如果是官网模块则是必填;按照模块内容，填写固定的对应值;原生官网base;微社区ingame;同人站doujin;赛事match;故事站story;文化站history;粉丝站fans;爆料站coming;论坛bbs;默认other;
       };
-      if (typeof (pgvMain) == 'function') pgvMain();
+      if (typeof pgvMain == "function") pgvMain();
     </script>
     <% } %>
-</body>
-
+  </body>
 </html>
