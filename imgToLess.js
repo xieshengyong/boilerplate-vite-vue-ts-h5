@@ -2,9 +2,9 @@
 // 生成用于显示背景图的less
 
 const fs = require('fs');
+const path = require('path');
 const getImageSize = require('image-size');
 
-const path = require('path');
 function getAllDirs(mypath = './src/assets/') {
     const items = fs.readdirSync(mypath);
 
@@ -18,16 +18,16 @@ function getAllDirs(mypath = './src/assets/') {
         console.log('name :>> ', name);
         const { width, height, type } = getImageSize(name);
         let name1 = name.replace(/\\/g, '/');
-        let name2 = name1.replace(/src\/img\//g, '');
+        let name2 = name1.replace(/src\/assets\//g, '');
         let name3 = name2.replace(/\.\w*/g, '').replace(/\w*\//g, '');
         result += `
 .img_${name3} {
-    background-image: url('@{img}/${name2}');
+    background-image: url('@{img}${name2}');
 }
         `;
         result += `
 .img_${name3}_s {
-    background-image: url('@{img}/${name2}');
+    background-image: url('@{img}${name2}');
     width: ${width / 100}rem;
     height: ${height / 100}rem;
     background-position: center;
@@ -66,7 +66,7 @@ function getAllDirs(mypath = './src/assets/') {
 
     return result;
 };
-fs.writeFile(path.join(path.resolve(__dirname), './src/styles/imgs.less'), `@img: '../assets/';` + getAllDirs(), function (err) {
+fs.writeFile(path.join(path.resolve(__dirname), './src/styles/imgs.less'), `@img: './src/assets/';` + getAllDirs(), function (err) {
     if (err) {
         return console.log(err);
     }
