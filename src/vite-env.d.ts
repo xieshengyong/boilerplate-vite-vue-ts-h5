@@ -11,3 +11,9 @@ declare interface Window {
 // 统计相关
 declare var _czc: any;
 declare var _tdga: any;
+
+interface ZeptoCollection {
+  fadeOut(num?: any, num2?: any): ZeptoCollection;
+  fadeIn(num?: any, num2?: any): ZeptoCollection;
+  selectModel(obj?: any): ZeptoCollection;
+}
