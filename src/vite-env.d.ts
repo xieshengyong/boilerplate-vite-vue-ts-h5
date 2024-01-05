@@ -12,6 +12,9 @@ declare interface Window {
 declare var _czc: any;
 declare var _tdga: any;
 
+declare var MMD: any;
+declare var mediaURLData: any;
+
 interface ZeptoCollection {
   fadeOut(num?: any, num2?: any): ZeptoCollection;
   fadeIn(num?: any, num2?: any): ZeptoCollection;

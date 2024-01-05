@@ -11,9 +11,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "td": "vue-tsc && vite build --mode td",
-    "preview": "vite preview",
     "postbuild": "npm run movehtml",
+    "tx": "vue-tsc && vite build --mode tx",
+    "posttx": "npm run movehtml",
+    "preview": "vite preview",
     "movehtml": "move-file dist/ossweb-img/index.html dist/index.html",
     "trashvideo": "trash dist/ossweb-img/*.mp4",
     "zip": "cd dist && bestzip dist.zip ossweb-img/ index.html",
@@ -22,9 +23,14 @@
     "ssh": "ssh -D 0.0.0.0:20000 treedom@8.135.58.157 -N"
   },
   "dependencies": {
+    "gsap": "^3.12.4",
+    "howler": "^2.2.4",
+    "lottie-web": "^5.12.2",
+    "senyou-tool": "^0.0.3",
     "vue": "^3.3.8"
   },
   "devDependencies": {
+    "@types/howler": "^2.2.11",
     "@types/node": "^20.10.0",
     "@types/zepto": "^1.0.36",
     "@vitejs/plugin-legacy": "^5.2.0",

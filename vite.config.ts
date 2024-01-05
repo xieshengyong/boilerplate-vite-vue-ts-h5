@@ -36,7 +36,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
 
-    base: isBuild ? "https://cdnchinacoding.treedom.cn/static/page/" : "/",
+    base: isBuild ? (mode === "tx" ? "//game.gtimg.cn/images/ymzx/web202312pc/" : "//cdnchinacoding.treedom.cn/static/page/") : "/",
 
     build: {
       assetsInlineLimit: 1, // 图片转 base64 编码的阈值
@@ -57,7 +57,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       target: ["ios11"],
     },
 
-    assetsInclude: ["**/*.TTF"],
+    assetsInclude: ["**/*.TTF", "**/*.mp3"],
 
     // server
     server: {
