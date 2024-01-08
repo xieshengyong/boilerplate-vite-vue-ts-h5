@@ -20,7 +20,8 @@
     "zip": "cd dist && bestzip dist.zip ossweb-img/ index.html",
     "sftp": "node sftp.js",
     "qshell": "qshell user cu td && qshell qupload -c 30 .qshell.json",
-    "ssh": "ssh -D 0.0.0.0:20000 treedom@8.135.58.157 -N"
+    "ssh": "ssh -D 0.0.0.0:20000 treedom@8.135.58.157 -N",
+    "audio": "audiosprite -f howler2 -b 128 -o ./src/assets/media/mc -e mp3 ./src/assets/media/audio/mc/*.mp3"
   },
   "dependencies": {
     "gsap": "^3.12.4",
