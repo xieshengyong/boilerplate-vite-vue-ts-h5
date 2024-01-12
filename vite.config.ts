@@ -36,7 +36,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
 
-    base: isBuild ? (mode === "tx" ? "//game.gtimg.cn/images/ymzx/web202312pc/" : "//cdnchinacoding.treedom.cn/static/page/") : "/",
+    base: isBuild ? (mode === "tx" ? "//game.gtimg.cn/images/ymzx/web202312pc/" : "//qrtss.treedom.cn/a20240107act/") : "/",
 
     build: {
       assetsInlineLimit: 1, // 图片转 base64 编码的阈值
