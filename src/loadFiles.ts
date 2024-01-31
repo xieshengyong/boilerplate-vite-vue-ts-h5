@@ -1,11 +1,14 @@
 import { getAssetsFile } from "./Config";
 
-const allFiles = import.meta.glob([
-  "./assets/*.jpg",
-  "./assets/*.png",
-  // "../assets/images/*/*.jpg",
-  // "../assets/images/*/*.png",
-]);
+const allFiles = import.meta.glob(
+  [
+    "./assets/*.jpg",
+    "./assets/*.png",
+    // "../assets/images/*/*.jpg",
+    // "../assets/images/*/*.png",
+  ],
+  { eager: true }
+);
 
 const ImgList = Object.keys(allFiles).map((val) => {
   return getAssetsFile(val.replace("./assets/", ""));

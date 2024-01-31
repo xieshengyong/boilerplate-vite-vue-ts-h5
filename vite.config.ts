@@ -43,14 +43,19 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       rollupOptions: {
         input: {
           index: path.resolve(__dirname, "index.html"),
-          // index_qq: path.resolve(__dirname, 'index_qq.html'),
         },
-        // output: {
-        //   // 静态资源分类打包
-        //   chunkFileNames: 'assets/js/[name]-[hash].js',
-        //   entryFileNames: 'assets/js/[name]-[hash].js',
-        //   assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
-        // },
+        output:
+          mode === "tx"
+            ? {
+                chunkFileNames: "assets/[name].js",
+                entryFileNames: "assets/[name].js",
+                assetFileNames: "assets/[name].[ext]",
+              }
+            : {
+                chunkFileNames: "[name]-[hash].js",
+                entryFileNames: "[name]-[hash].js",
+                assetFileNames: "[name]-[hash].[ext]",
+              },
       },
       outDir: "dist/ossweb-img/",
       assetsDir: "./",

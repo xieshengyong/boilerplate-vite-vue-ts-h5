@@ -57,7 +57,7 @@ var resetScroll = (function () {
     }, timeWindow);
   };
 })();
-// $("body").on("DOMSubtreeModified", resetScroll);
+$("body").on("DOMSubtreeModified", resetScroll);
 
 export function setFontTo(name: string, path: string) {
   var newFontStyleSheet = document.createElement("style");
