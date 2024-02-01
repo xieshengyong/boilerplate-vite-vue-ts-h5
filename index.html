@@ -20,7 +20,7 @@
 
   <body>
     <!-- VUE 模式 start -->
-    <!-- <div id="app"></div> -->
+    <div id="app"></div>
     <!-- VUE 模式 end -->
 
     <!-- 竖屏页 -->
@@ -54,15 +54,10 @@
       <div class="container"></div>
     </div>
 
-    <% if(MODE == 'development' ) { %>
-    <script src="./public/lib/zepto.modules.min.js"></script>
-    <% } else { %>
-    <script src="%BASE_URL%lib/zepto.modules.min.js"></script>
-    <% } %>
-
+    <script src="/lib/zepto.modules.min.js"></script>
     <script type="module" src="/src/main.ts"></script>
 
-    <% if(MODE == 'production') { %>
+    <% if(MODE == 'tx') { %>
     <script src="//ossweb-img.qq.com/images/js/PTT/ping_tcss_tgideas_https_min.js"></script>
     <script src="//ossweb-img.qq.com/images/js/TGMobileShare/TGMobileShare.min.js"></script>
     <script>
