@@ -1,41 +1,34 @@
-import { getAssetsFile } from "./Config";
+import { AllFiles, getAssetsFile } from "./Config";
 
-const allFiles = import.meta.glob(
-  [
-    "./assets/*.jpg",
-    "./assets/*.png",
-    // "../assets/images/*/*.jpg",
-    // "../assets/images/*/*.png",
-  ],
-  { eager: true }
-);
+export function loadFiles(list: any[], loadprogress?: any) {
+  return new Promise((resolve, _reject) => {
+    let loadprogresscb: any;
+    // 完成加载图片数
+    let loadNum = 0;
+    const imgList = Object.keys(AllFiles)
+      .filter((val) => val.match(new RegExp(list.join("|")))?.length)
+      .map((val) => getAssetsFile(val.replace("../assets/", "")));
 
-const ImgList = Object.keys(allFiles).map((val) => {
-  return getAssetsFile(val.replace("./assets/", ""));
-});
+    function imgLoad(this: any) {
+      if (loadNum >= imgList.length) return resolve(null);
 
-let loadprogresscb: any;
-// 完成加载图片数
-var loadNum = 0;
+      loadNum++;
+      let prs = Math.floor((loadNum / imgList.length) * 100);
+      loadprogresscb?.(prs);
+      this.src = imgList[loadNum - 1];
+    }
 
-function imgLoad(this: any) {
-  if (loadNum >= ImgList.length) {
-    return;
-  }
-  loadNum++;
-  loadprogresscb?.(Math.floor((loadNum / ImgList.length) * 100));
-  this.src = ImgList[loadNum - 1];
+    loadprogresscb = loadprogress;
+    let imgLength = imgList.length > 10 ? 10 : imgList.length;
+    for (let i = 0; i < imgLength; i++) {
+      let imgEle = new Image();
+      imgEle.onload = imgLoad;
+      imgEle.onerror = () => {
+        console.error("图片加载错误：", imgEle.src);
+        imgLoad();
+      };
+      // imgEle.setAttribute("crossOrigin", "anonymous");
+      imgEle.src = imgList[i] as string;
+    }
+  });
 }
-
-function loadFiles(loadprogress: any) {
-  loadprogresscb = loadprogress;
-  let imgLength = ImgList.length > 10 ? 10 : ImgList.length;
-  for (let i = 0; i < imgLength; i++) {
-    let imgEle = new Image();
-    imgEle.onload = imgLoad;
-    imgEle.onerror = imgLoad;
-    imgEle.src = ImgList[i];
-  }
-}
-
-export { loadFiles };

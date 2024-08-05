@@ -70,10 +70,11 @@ export function setFontTo(name: string, path: string) {
   document.head.appendChild(newFontStyleSheet);
 }
 
-export const getAssetsFile = (url: string) => {
-  return new URL(`./assets/${url}`, import.meta.url).href;
-};
+export const AllFiles = import.meta.glob(["./assets/*.jpg", "./assets/*.png", "./assets/**/*.png", "./assets/**/*.jpg", "./assets/**/*.mp3"], { import: "default", eager: true });
 
+export const getAssetsFile = (url: string) => {
+  return AllFiles[`./assets/${url}`];
+};
 export const preLoadImg = (imgs: any) => {
   let imgsLoader: any = [];
   imgs.forEach((ele: any) => {
